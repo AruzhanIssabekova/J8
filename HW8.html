@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HW8</title>
+<style>
+  #styled-text {font-size: 16px;font-family: Arial, sans-serif;color: black;}
+  #styled-text-container {width: 50%;margin: 0 auto; text-align: center; border: 1px solid #ccc; padding: 20px; margin-top: 20px;}
+</style>
+</head>
+<body>
+
+<h2>Введите текст:</h2>
+
+<form id="text-form">
+  <label for="text">Текст:</label><br>
+  <input type="text" id="text" name="text"><br>
+
+  <label for="font-size">Размер шрифта:</label><br>
+  <input type="number" id="font-size" name="font-size"><br>
+
+  <label for="font-family">Шрифт:</label><br>
+  <select id="font-family" name="font-family">
+    <option value="Arial">Arial</option>
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Verdana">Verdana</option>
+  </select><br>
+
+  <input type="checkbox" id="bold" name="bold">
+  <label for="bold">Жирный</label><br>
+
+  <input type="checkbox" id="underline" name="underline">
+  <label for="underline">Подчеркнутый</label><br>
+
+  <input type="checkbox" id="italic" name="italic">
+  <label for="italic">Курсив</label><br>
+
+  <label for="alignment">Расположение текста:</label><br>
+  <select id="alignment" name="alignment">
+    <option value="left">Слева</option>
+    <option value="center">По центру</option>
+    <option value="right">Справа</option>
+  </select><br>
+
+  <button type="button" onclick="styles()">Применить стили</button>
+</form>
+
+<div id="styled-text-container">
+  <div id="styled-text"></div>
+</div>
+
+<script>
+  function styles() {
+    var text = document.getElementById("text").value;
+    var size = document.getElementById("font-size").value + "px";
+    var family = document.getElementById("font-family").value;
+    var bold = document.getElementById("bold").checked;
+    var underline = document.getElementById("underline").checked;
+    var italic = document.getElementById("italic").checked;
+    var alignment = document.getElementById("alignment").value;
+
+    var stext = document.getElementById("styled-text");
+    stext.innerHTML = text;
+    stext.style.fontSize = size;
+    stext.style.fontFamily = family;
+    stext.style.fontWeight = bold ? "bold" : "normal";
+    stext.style.textDecoration = underline ? "underline" : "none";
+    stext.style.fontStyle = italic ? "italic" : "normal";
+    stext.style.textAlign = alignment;
+  }
+</script>
+
+</body>
+</html>
